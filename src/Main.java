@@ -83,14 +83,14 @@ public class Main {
 			br = new BufferedReader(new FileReader(filename));
 			// Separating the first line and setting up the tags to add to the data
 			String line = br.readLine();
-			String[] tags = line.split(" +");
+			String[] tags = line.split(",");
 
 			// Loops through the file, reading line by line
 			// Splits the line, then adds the tags to the corresponding value
 			// Adds the split line into the data array
 			line = br.readLine();
 			while (line != null) {
-				String[] split = line.split(" +");
+				String[] split = line.split(",");
 				if(split.length == tags.length) {
 					numRows++;
 					for (int i = 0; i < split.length; i++) {
@@ -115,9 +115,12 @@ public class Main {
 			}
 		}
 
+		long startTime = System.currentTimeMillis();
 		// Passes the input to the apriori algorithm. Gets a list of rules in return.
 		List<String> rules = Apriori.runApriori(Data, support, confidence);
+		long endTime = System.currentTimeMillis();
 
+		
 		// Outputs the summary and discovered rules to a file named "Rules"
 		// Overwrites a file if it already exists, and creates one if it does not.
 		BufferedWriter bw = null;
@@ -134,8 +137,10 @@ public class Main {
 			bw.write("Total rows in the original set: " + numRows + "\n");
 			bw.write("Total rules discovered: " + rules.size() + "\n");
 			bw.write("The selected measures: Support=" + support + ", Confidence=" + confidence + "\n");
+			bw.write("\nTime to mine rules (ms): " + (endTime - startTime));
 			bw.write("----------------------------\n");
 			bw.write("Discovered rules:\n\n" + rules);
+
 		} catch(Exception e) {
 			System.out.println("Error outputting the rules.");
 		} finally {
