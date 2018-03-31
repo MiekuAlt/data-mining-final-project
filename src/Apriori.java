@@ -19,7 +19,7 @@ public final class Apriori {
 		minSupport = supportInput;
 		minConfidence = confidenceInput;
 		finalTable = new ArrayList<KeyValue>();
- 		List<KeyValue> freqTable = genTables();
+ 		genTables();
 		
 		// Association aspect of the algorithm to generate the rules
 		List<String> rules = runAssociation(finalTable);
@@ -114,7 +114,7 @@ public final class Apriori {
 	}
 		
 	// Generates the tables until there are none left
-	private static List<KeyValue> genTables() {
+	private static void genTables() {
 		
 		List<List<String>> curDataSets;
 		List<Item> uniqueItems;
@@ -125,11 +125,8 @@ public final class Apriori {
 		candTable = buildFirstCand(uniqueItems);
 		freqTable = buildFreq(candTable);
 		
-		List<KeyValue> prevFreqTable = new ArrayList<KeyValue>();
-		
 		int iteration = 2;
 		while(!freqTable.isEmpty()) {
-			prevFreqTable = freqTable;
 			curDataSets = expandItemSet(freqTable, iteration);
 			candTable = buildCand(curDataSets);
 
@@ -137,7 +134,6 @@ public final class Apriori {
 			iteration++;
 		}
 		
-		return prevFreqTable;
 	}
 	
 	// Expands the itemSets to the nth based on an example from https://stackoverflow.com/questions/5162254/all-possible-combinations-of-an-array
