@@ -21,6 +21,8 @@ public final class Apriori {
 		finalTable = new ArrayList<KeyValue>();
  		genTables();
 		
+ 		printTable(finalTable, "FinalTable");
+ 		
 		// Association aspect of the algorithm to generate the rules
 		List<String> rules = runAssociation(finalTable);
 		List<String> output = new ArrayList<String>();
@@ -282,6 +284,19 @@ public final class Apriori {
 		return uniques;
 	}
 	
+	// TODO: Remove this, it is for testing only
+	public static void printTable(List<KeyValue> table, String tableName) {
+		System.out.println("+------ Table: " + tableName + "------+");
+		for(int i = 0; i < table.size(); i++) {
+			// Each itemset
+			for(int j = 0; j < table.get(i).itemSet.size(); j++) {
+				System.out.print(table.get(i).itemSet.get(j).value + " ");
+			}
+			System.out.println("Support: " + table.get(i).support);
+		}
+		System.out.println("+---------------------------------+");
+	}
+	
 } // end of the Apriori class
 
 // A table row in both candidate and frequency tables
@@ -367,4 +382,5 @@ class Rule {
 		bd = bd.round(new MathContext(2));
 		support = bd.doubleValue();
 	}
+
 }
