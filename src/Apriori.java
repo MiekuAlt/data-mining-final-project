@@ -382,5 +382,4 @@ class Rule {
 		bd = bd.round(new MathContext(2));
 		support = bd.doubleValue();
 	}
-
 }
