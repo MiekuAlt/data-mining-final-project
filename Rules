@@ -1,0 +1,71 @@
+Summary: 
+Total rows in the original set: 14
+Total rules discovered: 21
+The selected measures: Support=0.25, Confidence=0.5
+----------------------------
+Discovered rules:
+
+[Rule#1: (Support=0.27, Confidence=0.57)
+{ Humidity=high }
+----> { PlayTennis=N }
+, Rule#2: (Support=0.27, Confidence=0.57)
+{ Humidity=normal }
+----> { PlayTennis=P Windy=false }
+, Rule#3: (Support=0.27, Confidence=0.5)
+{ Windy=false }
+----> { Humidity=normal }
+, Rule#4: (Support=0.27, Confidence=0.57)
+{ Humidity=high }
+----> { Windy=false }
+, Rule#5: (Support=0.4, Confidence=0.75)
+{ Windy=false }
+----> { PlayTennis=P }
+, Rule#6: (Support=0.27, Confidence=0.57)
+{ Humidity=normal }
+----> { Windy=false }
+, Rule#7: (Support=0.27, Confidence=0.67)
+{ temperature=mild }
+----> { PlayTennis=P }
+, Rule#8: (Support=0.27, Confidence=0.67)
+{ Humidity=normal PlayTennis=P }
+----> { Windy=false }
+, Rule#9: (Support=0.27, Confidence=0.5)
+{ Windy=false }
+----> { Humidity=high }
+, Rule#10: (Support=0.27, Confidence=1.0)
+{ temperature=cool }
+----> { Humidity=normal }
+, Rule#11: (Support=0.27, Confidence=0.8)
+{ PlayTennis=N }
+----> { Humidity=high }
+, Rule#12: (Support=0.27, Confidence=0.67)
+{ temperature=mild }
+----> { Humidity=high }
+, Rule#13: (Support=0.27, Confidence=0.67)
+{ PlayTennis=P Windy=false }
+----> { Humidity=normal }
+, Rule#14: (Support=0.27, Confidence=1.0)
+{ outlook=overcast }
+----> { PlayTennis=P }
+, Rule#15: (Support=0.27, Confidence=0.5)
+{ Windy=false }
+----> { Humidity=normal PlayTennis=P }
+, Rule#16: (Support=0.27, Confidence=0.57)
+{ Humidity=normal }
+----> { temperature=cool }
+, Rule#17: (Support=0.4, Confidence=0.67)
+{ PlayTennis=P }
+----> { Humidity=normal }
+, Rule#18: (Support=0.4, Confidence=0.67)
+{ PlayTennis=P }
+----> { Windy=false }
+, Rule#19: (Support=0.27, Confidence=1.0)
+{ Humidity=normal Windy=false }
+----> { PlayTennis=P }
+, Rule#20: (Support=0.27, Confidence=0.57)
+{ Humidity=high }
+----> { temperature=mild }
+, Rule#21: (Support=0.4, Confidence=0.86)
+{ Humidity=normal }
+----> { PlayTennis=P }
+]
