@@ -1,71 +1,819 @@
 Summary: 
-Total rows in the original set: 14
-Total rules discovered: 21
+Total rows in the original set: 4627
+Total rules discovered: 270
 The selected measures: Support=0.25, Confidence=0.5
-----------------------------
+
+Time to mine rules (ms): 11503----------------------------
 Discovered rules:
 
-[Rule#1: (Support=0.27, Confidence=0.57)
-{ Humidity=high }
-----> { PlayTennis=N }
-, Rule#2: (Support=0.27, Confidence=0.57)
-{ Humidity=normal }
-----> { PlayTennis=P Windy=false }
-, Rule#3: (Support=0.27, Confidence=0.5)
-{ Windy=false }
-----> { Humidity=normal }
-, Rule#4: (Support=0.27, Confidence=0.57)
-{ Humidity=high }
-----> { Windy=false }
-, Rule#5: (Support=0.4, Confidence=0.75)
-{ Windy=false }
-----> { PlayTennis=P }
-, Rule#6: (Support=0.27, Confidence=0.57)
-{ Humidity=normal }
-----> { Windy=false }
-, Rule#7: (Support=0.27, Confidence=0.67)
-{ temperature=mild }
-----> { PlayTennis=P }
-, Rule#8: (Support=0.27, Confidence=0.67)
-{ Humidity=normal PlayTennis=P }
-----> { Windy=false }
-, Rule#9: (Support=0.27, Confidence=0.5)
-{ Windy=false }
-----> { Humidity=high }
-, Rule#10: (Support=0.27, Confidence=1.0)
-{ temperature=cool }
-----> { Humidity=normal }
-, Rule#11: (Support=0.27, Confidence=0.8)
-{ PlayTennis=N }
-----> { Humidity=high }
-, Rule#12: (Support=0.27, Confidence=0.67)
-{ temperature=mild }
-----> { Humidity=high }
-, Rule#13: (Support=0.27, Confidence=0.67)
-{ PlayTennis=P Windy=false }
-----> { Humidity=normal }
-, Rule#14: (Support=0.27, Confidence=1.0)
-{ outlook=overcast }
-----> { PlayTennis=P }
-, Rule#15: (Support=0.27, Confidence=0.5)
-{ Windy=false }
-----> { Humidity=normal PlayTennis=P }
-, Rule#16: (Support=0.27, Confidence=0.57)
-{ Humidity=normal }
-----> { temperature=cool }
-, Rule#17: (Support=0.4, Confidence=0.67)
-{ PlayTennis=P }
-----> { Humidity=normal }
-, Rule#18: (Support=0.4, Confidence=0.67)
-{ PlayTennis=P }
-----> { Windy=false }
-, Rule#19: (Support=0.27, Confidence=1.0)
-{ Humidity=normal Windy=false }
-----> { PlayTennis=P }
-, Rule#20: (Support=0.27, Confidence=0.57)
-{ Humidity=high }
-----> { temperature=mild }
-, Rule#21: (Support=0.4, Confidence=0.86)
-{ Humidity=normal }
-----> { PlayTennis=P }
+[Rule#1: (Support=0.4, Confidence=0.76)
+{ juice-sat-cord-ms=t }
+----> { 'bread and cake'=t }
+, Rule#2: (Support=0.25, Confidence=0.58)
+{ fruit=t milk-cream=t }
+----> { juice-sat-cord-ms=t }
+, Rule#3: (Support=0.34, Confidence=0.68)
+{ 'party snack foods'=t }
+----> { fruit=t }
+, Rule#4: (Support=0.29, Confidence=0.54)
+{ juice-sat-cord-ms=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#5: (Support=0.34, Confidence=0.54)
+{ vegetables=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#6: (Support=0.27, Confidence=0.55)
+{ vegetables=t 'bread and cake'=t }
+----> { 'baking needs'=t fruit=t }
+, Rule#7: (Support=0.36, Confidence=0.71)
+{ 'bread and cake'=t milk-cream=t }
+----> { vegetables=t }
+, Rule#8: (Support=0.41, Confidence=0.64)
+{ vegetables=t }
+----> { 'frozen foods'=t }
+, Rule#9: (Support=0.32, Confidence=0.5)
+{ vegetables=t }
+----> { 'baking needs'=t fruit=t }
+, Rule#10: (Support=0.25, Confidence=0.61)
+{ 'baking needs'=t milk-cream=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#11: (Support=0.35, Confidence=0.6)
+{ 'frozen foods'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#12: (Support=0.46, Confidence=0.64)
+{ 'bread and cake'=t }
+----> { 'frozen foods'=t }
+, Rule#13: (Support=0.4, Confidence=0.68)
+{ 'frozen foods'=t }
+----> { 'baking needs'=t }
+, Rule#14: (Support=0.28, Confidence=0.55)
+{ 'party snack foods'=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#15: (Support=0.32, Confidence=0.53)
+{ 'baking needs'=t }
+----> { vegetables=t fruit=t }
+, Rule#16: (Support=0.25, Confidence=0.71)
+{ vegetables=t 'bread and cake'=t milk-cream=t }
+----> { 'baking needs'=t }
+, Rule#17: (Support=0.25, Confidence=0.54)
+{ juice-sat-cord-ms=f }
+----> { 'baking needs'=t }
+, Rule#18: (Support=0.28, Confidence=0.56)
+{ 'bread and cake'=t milk-cream=t }
+----> { vegetables=t fruit=t }
+, Rule#19: (Support=0.34, Confidence=0.81)
+{ 'baking needs'=t vegetables=t }
+----> { 'bread and cake'=t }
+, Rule#20: (Support=0.32, Confidence=0.53)
+{ 'baking needs'=t }
+----> { 'bread and cake'=t 'frozen foods'=t }
+, Rule#21: (Support=0.28, Confidence=0.7)
+{ 'bread and cake'=t 'party snack foods'=t }
+----> { vegetables=t }
+, Rule#22: (Support=0.34, Confidence=0.78)
+{ vegetables=t milk-cream=t }
+----> { fruit=t }
+, Rule#23: (Support=0.29, Confidence=0.72)
+{ 'frozen foods'=t milk-cream=t }
+----> { vegetables=t }
+, Rule#24: (Support=0.28, Confidence=0.6)
+{ juice-sat-cord-ms=f }
+----> { milk-cream=t }
+, Rule#25: (Support=0.34, Confidence=0.69)
+{ vegetables=t 'bread and cake'=t }
+----> { 'baking needs'=t }
+, Rule#26: (Support=0.34, Confidence=0.67)
+{ 'bread and cake'=t fruit=t }
+----> { 'baking needs'=t }
+, Rule#27: (Support=0.28, Confidence=0.7)
+{ 'baking needs'=t 'frozen foods'=t }
+----> { milk-cream=t }
+, Rule#28: (Support=0.26, Confidence=0.55)
+{ vegetables=t fruit=t }
+----> { 'party snack foods'=t }
+, Rule#29: (Support=0.48, Confidence=0.75)
+{ vegetables=t }
+----> { fruit=t }
+, Rule#30: (Support=0.29, Confidence=0.81)
+{ juice-sat-cord-ms=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#31: (Support=0.28, Confidence=0.71)
+{ 'bread and cake'=t 'party snack foods'=t }
+----> { 'frozen foods'=t }
+, Rule#32: (Support=0.41, Confidence=0.68)
+{ 'baking needs'=t }
+----> { fruit=t }
+, Rule#33: (Support=0.26, Confidence=0.76)
+{ fruit=t 'party snack foods'=t }
+----> { vegetables=t }
+, Rule#34: (Support=0.25, Confidence=0.5)
+{ 'bread and cake'=t milk-cream=t }
+----> { 'baking needs'=t vegetables=t }
+, Rule#35: (Support=0.39, Confidence=0.77)
+{ 'bread and cake'=t fruit=t }
+----> { vegetables=t }
+, Rule#36: (Support=0.44, Confidence=0.69)
+{ milk-cream=t }
+----> { fruit=t }
+, Rule#37: (Support=0.29, Confidence=0.57)
+{ 'bread and cake'=t fruit=t }
+----> { 'party snack foods'=t }
+, Rule#38: (Support=0.4, Confidence=0.63)
+{ fruit=t }
+----> { 'frozen foods'=t }
+, Rule#39: (Support=0.41, Confidence=0.65)
+{ milk-cream=t }
+----> { 'baking needs'=t }
+, Rule#40: (Support=0.36, Confidence=0.72)
+{ vegetables=t 'bread and cake'=t }
+----> { milk-cream=t }
+, Rule#41: (Support=0.33, Confidence=0.52)
+{ fruit=t }
+----> { 'bread and cake'=t 'frozen foods'=t }
+, Rule#42: (Support=0.27, Confidence=0.64)
+{ 'baking needs'=t vegetables=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#43: (Support=0.42, Confidence=0.7)
+{ 'baking needs'=t }
+----> { vegetables=t }
+, Rule#44: (Support=0.5, Confidence=0.78)
+{ fruit=t }
+----> { 'bread and cake'=t }
+, Rule#45: (Support=0.27, Confidence=0.55)
+{ 'party snack foods'=f }
+----> { 'baking needs'=t }
+, Rule#46: (Support=0.36, Confidence=0.67)
+{ juice-sat-cord-ms=t }
+----> { vegetables=t }
+, Rule#47: (Support=0.28, Confidence=0.52)
+{ juice-sat-cord-ms=t }
+----> { 'bread and cake'=t 'frozen foods'=t }
+, Rule#48: (Support=0.27, Confidence=0.8)
+{ 'baking needs'=t 'bread and cake'=t fruit=t }
+----> { vegetables=t }
+, Rule#49: (Support=0.33, Confidence=0.57)
+{ 'frozen foods'=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#50: (Support=0.28, Confidence=0.6)
+{ 'bread and cake'=t 'frozen foods'=t }
+----> { 'party snack foods'=t }
+, Rule#51: (Support=0.25, Confidence=0.61)
+{ 'baking needs'=t fruit=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#52: (Support=0.33, Confidence=0.67)
+{ vegetables=t 'bread and cake'=t }
+----> { 'frozen foods'=t }
+, Rule#53: (Support=0.31, Confidence=0.78)
+{ 'frozen foods'=t fruit=t }
+----> { vegetables=t }
+, Rule#54: (Support=0.34, Confidence=0.82)
+{ 'baking needs'=t fruit=t }
+----> { 'bread and cake'=t }
+, Rule#55: (Support=0.28, Confidence=0.7)
+{ 'baking needs'=t 'frozen foods'=t }
+----> { fruit=t }
+, Rule#56: (Support=0.33, Confidence=0.52)
+{ milk-cream=t }
+----> { 'party snack foods'=t }
+, Rule#57: (Support=0.3, Confidence=0.61)
+{ 'party snack foods'=f }
+----> { milk-cream=t }
+, Rule#58: (Support=0.29, Confidence=0.7)
+{ vegetables=t 'frozen foods'=t }
+----> { milk-cream=t }
+, Rule#59: (Support=0.32, Confidence=0.78)
+{ 'baking needs'=t fruit=t }
+----> { vegetables=t }
+, Rule#60: (Support=0.41, Confidence=0.69)
+{ 'frozen foods'=t }
+----> { vegetables=t }
+, Rule#61: (Support=0.36, Confidence=0.68)
+{ juice-sat-cord-ms=t }
+----> { fruit=t }
+, Rule#62: (Support=0.28, Confidence=0.77)
+{ vegetables=t juice-sat-cord-ms=t }
+----> { fruit=t }
+, Rule#63: (Support=0.35, Confidence=0.56)
+{ milk-cream=t }
+----> { juice-sat-cord-ms=t }
+, Rule#64: (Support=0.27, Confidence=0.84)
+{ 'baking needs'=t vegetables=t fruit=t }
+----> { 'bread and cake'=t }
+, Rule#65: (Support=0.29, Confidence=0.73)
+{ 'bread and cake'=t 'party snack foods'=t }
+----> { fruit=t }
+, Rule#66: (Support=0.33, Confidence=0.57)
+{ 'frozen foods'=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#67: (Support=0.27, Confidence=0.69)
+{ 'bread and cake'=t 'party snack foods'=t }
+----> { 'baking needs'=t }
+, Rule#68: (Support=0.27, Confidence=0.8)
+{ 'bread and cake'=t 'frozen foods'=t fruit=t }
+----> { vegetables=t }
+, Rule#69: (Support=0.34, Confidence=0.53)
+{ fruit=t }
+----> { vegetables=t milk-cream=t }
+, Rule#70: (Support=0.28, Confidence=0.73)
+{ vegetables=t 'bread and cake'=t fruit=t }
+----> { milk-cream=t }
+, Rule#71: (Support=0.36, Confidence=0.72)
+{ 'bread and cake'=t milk-cream=t }
+----> { fruit=t }
+, Rule#72: (Support=0.27, Confidence=0.8)
+{ vegetables=t 'bread and cake'=t 'frozen foods'=t }
+----> { fruit=t }
+, Rule#73: (Support=0.34, Confidence=0.71)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { fruit=t }
+, Rule#74: (Support=0.27, Confidence=0.7)
+{ vegetables=t 'bread and cake'=t fruit=t }
+----> { 'baking needs'=t }
+, Rule#75: (Support=0.29, Confidence=0.83)
+{ fruit=t 'party snack foods'=t }
+----> { 'bread and cake'=t }
+, Rule#76: (Support=0.3, Confidence=0.72)
+{ 'baking needs'=t fruit=t }
+----> { milk-cream=t }
+, Rule#77: (Support=0.31, Confidence=0.53)
+{ 'frozen foods'=t }
+----> { vegetables=t fruit=t }
+, Rule#78: (Support=0.36, Confidence=0.72)
+{ 'bread and cake'=t fruit=t }
+----> { milk-cream=t }
+, Rule#79: (Support=0.32, Confidence=0.76)
+{ 'baking needs'=t vegetables=t }
+----> { fruit=t }
+, Rule#80: (Support=0.51, Confidence=0.7)
+{ 'bread and cake'=t }
+----> { milk-cream=t }
+, Rule#81: (Support=0.33, Confidence=0.56)
+{ 'frozen foods'=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#82: (Support=0.3, Confidence=0.5)
+{ 'baking needs'=t }
+----> { vegetables=t milk-cream=t }
+, Rule#83: (Support=0.32, Confidence=0.7)
+{ 'bread and cake'=t 'frozen foods'=t }
+----> { 'baking needs'=t }
+, Rule#84: (Support=0.32, Confidence=0.81)
+{ 'baking needs'=t 'frozen foods'=t }
+----> { 'bread and cake'=t }
+, Rule#85: (Support=0.3, Confidence=0.6)
+{ 'party snack foods'=f }
+----> { fruit=t }
+, Rule#86: (Support=0.39, Confidence=0.78)
+{ vegetables=t 'bread and cake'=t }
+----> { fruit=t }
+, Rule#87: (Support=0.39, Confidence=0.81)
+{ vegetables=t fruit=t }
+----> { 'bread and cake'=t }
+, Rule#88: (Support=0.34, Confidence=0.83)
+{ 'baking needs'=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#89: (Support=0.33, Confidence=0.52)
+{ milk-cream=t }
+----> { 'bread and cake'=t 'frozen foods'=t }
+, Rule#90: (Support=0.27, Confidence=0.57)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { vegetables=t fruit=t }
+, Rule#91: (Support=0.27, Confidence=0.54)
+{ 'party snack foods'=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#92: (Support=0.34, Confidence=0.72)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { milk-cream=t }
+, Rule#93: (Support=0.29, Confidence=0.68)
+{ 'baking needs'=t vegetables=t }
+----> { 'frozen foods'=t }
+, Rule#94: (Support=0.25, Confidence=0.74)
+{ 'baking needs'=t vegetables=t 'bread and cake'=t }
+----> { milk-cream=t }
+, Rule#95: (Support=0.34, Confidence=0.68)
+{ 'party snack foods'=t }
+----> { 'frozen foods'=t }
+, Rule#96: (Support=0.36, Confidence=0.56)
+{ fruit=t }
+----> { juice-sat-cord-ms=t }
+, Rule#97: (Support=0.28, Confidence=0.8)
+{ 'baking needs'=t juice-sat-cord-ms=t }
+----> { 'bread and cake'=t }
+, Rule#98: (Support=0.26, Confidence=0.52)
+{ 'party snack foods'=t }
+----> { vegetables=t fruit=t }
+, Rule#99: (Support=0.28, Confidence=0.55)
+{ 'party snack foods'=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#100: (Support=0.29, Confidence=0.71)
+{ 'bread and cake'=t juice-sat-cord-ms=t }
+----> { milk-cream=t }
+, Rule#101: (Support=0.33, Confidence=0.73)
+{ 'bread and cake'=t 'frozen foods'=t }
+----> { vegetables=t }
+, Rule#102: (Support=0.39, Confidence=0.62)
+{ milk-cream=t }
+----> { 'frozen foods'=t }
+, Rule#103: (Support=0.33, Confidence=0.66)
+{ 'party snack foods'=f }
+----> { 'bread and cake'=t }
+, Rule#104: (Support=0.28, Confidence=0.71)
+{ 'bread and cake'=t 'party snack foods'=t }
+----> { milk-cream=t }
+, Rule#105: (Support=0.25, Confidence=0.53)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { vegetables=t milk-cream=t }
+, Rule#106: (Support=0.32, Confidence=0.5)
+{ fruit=t }
+----> { 'baking needs'=t vegetables=t }
+, Rule#107: (Support=0.28, Confidence=0.56)
+{ 'bread and cake'=t fruit=t }
+----> { vegetables=t milk-cream=t }
+, Rule#108: (Support=0.34, Confidence=0.77)
+{ fruit=t milk-cream=t }
+----> { vegetables=t }
+, Rule#109: (Support=0.36, Confidence=0.56)
+{ milk-cream=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#110: (Support=0.3, Confidence=0.72)
+{ 'baking needs'=t milk-cream=t }
+----> { fruit=t }
+, Rule#111: (Support=0.25, Confidence=0.57)
+{ fruit=t milk-cream=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#112: (Support=0.33, Confidence=0.82)
+{ vegetables=t 'frozen foods'=t }
+----> { 'bread and cake'=t }
+, Rule#113: (Support=0.34, Confidence=0.58)
+{ 'frozen foods'=t }
+----> { 'party snack foods'=t }
+, Rule#114: (Support=0.25, Confidence=0.62)
+{ vegetables=t 'frozen foods'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#115: (Support=0.28, Confidence=0.69)
+{ 'bread and cake'=t juice-sat-cord-ms=t }
+----> { 'frozen foods'=t }
+, Rule#116: (Support=0.25, Confidence=0.61)
+{ 'frozen foods'=f }
+----> { 'party snack foods'=f }
+, Rule#117: (Support=0.32, Confidence=0.64)
+{ 'party snack foods'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#118: (Support=0.33, Confidence=0.66)
+{ 'party snack foods'=t }
+----> { milk-cream=t }
+, Rule#119: (Support=0.34, Confidence=0.53)
+{ vegetables=t }
+----> { fruit=t milk-cream=t }
+, Rule#120: (Support=0.33, Confidence=0.52)
+{ vegetables=t }
+----> { 'bread and cake'=t 'frozen foods'=t }
+, Rule#121: (Support=0.28, Confidence=0.55)
+{ 'party snack foods'=t }
+----> { 'bread and cake'=t 'frozen foods'=t }
+, Rule#122: (Support=0.27, Confidence=0.58)
+{ 'bread and cake'=t 'frozen foods'=t }
+----> { vegetables=t fruit=t }
+, Rule#123: (Support=0.32, Confidence=0.55)
+{ 'frozen foods'=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#124: (Support=0.28, Confidence=0.67)
+{ 'baking needs'=t fruit=t }
+----> { 'frozen foods'=t }
+, Rule#125: (Support=0.28, Confidence=0.6)
+{ 'bread and cake'=t 'frozen foods'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#126: (Support=0.26, Confidence=0.8)
+{ juice-sat-cord-ms=t 'party snack foods'=t }
+----> { 'bread and cake'=t }
+, Rule#127: (Support=0.3, Confidence=0.71)
+{ 'baking needs'=t vegetables=t }
+----> { milk-cream=t }
+, Rule#128: (Support=0.26, Confidence=0.63)
+{ 'bread and cake'=t juice-sat-cord-ms=t }
+----> { 'party snack foods'=t }
+, Rule#129: (Support=0.26, Confidence=0.63)
+{ 'frozen foods'=f }
+----> { 'bread and cake'=t }
+, Rule#130: (Support=0.25, Confidence=0.74)
+{ 'baking needs'=t 'bread and cake'=t milk-cream=t }
+----> { vegetables=t }
+, Rule#131: (Support=0.28, Confidence=0.57)
+{ 'party snack foods'=f }
+----> { juice-sat-cord-ms=f }
+, Rule#132: (Support=0.39, Confidence=0.54)
+{ 'bread and cake'=t }
+----> { 'party snack foods'=t }
+, Rule#133: (Support=0.34, Confidence=0.53)
+{ milk-cream=t }
+----> { vegetables=t fruit=t }
+, Rule#134: (Support=0.36, Confidence=0.51)
+{ 'bread and cake'=t }
+----> { fruit=t milk-cream=t }
+, Rule#135: (Support=0.47, Confidence=0.66)
+{ 'bread and cake'=t }
+----> { 'baking needs'=t }
+, Rule#136: (Support=0.44, Confidence=0.68)
+{ vegetables=t }
+----> { milk-cream=t }
+, Rule#137: (Support=0.27, Confidence=0.54)
+{ vegetables=t 'bread and cake'=t }
+----> { 'frozen foods'=t fruit=t }
+, Rule#138: (Support=0.35, Confidence=0.58)
+{ 'baking needs'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#139: (Support=0.46, Confidence=0.78)
+{ 'frozen foods'=t }
+----> { 'bread and cake'=t }
+, Rule#140: (Support=0.3, Confidence=0.73)
+{ 'baking needs'=t milk-cream=t }
+----> { vegetables=t }
+, Rule#141: (Support=0.25, Confidence=0.7)
+{ vegetables=t juice-sat-cord-ms=t }
+----> { 'frozen foods'=t }
+, Rule#142: (Support=0.29, Confidence=0.81)
+{ juice-sat-cord-ms=t fruit=t }
+----> { 'bread and cake'=t }
+, Rule#143: (Support=0.27, Confidence=0.54)
+{ 'bread and cake'=t fruit=t }
+----> { 'baking needs'=t vegetables=t }
+, Rule#144: (Support=0.3, Confidence=0.69)
+{ vegetables=t milk-cream=t }
+----> { 'baking needs'=t }
+, Rule#145: (Support=0.27, Confidence=0.66)
+{ 'baking needs'=t fruit=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#146: (Support=0.35, Confidence=0.66)
+{ juice-sat-cord-ms=t }
+----> { milk-cream=t }
+, Rule#147: (Support=0.44, Confidence=0.69)
+{ milk-cream=t }
+----> { vegetables=t }
+, Rule#148: (Support=0.25, Confidence=0.73)
+{ 'baking needs'=t 'bread and cake'=t milk-cream=t }
+----> { fruit=t }
+, Rule#149: (Support=0.5, Confidence=0.69)
+{ 'bread and cake'=t }
+----> { vegetables=t }
+, Rule#150: (Support=0.27, Confidence=0.67)
+{ 'frozen foods'=t fruit=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#151: (Support=0.32, Confidence=0.6)
+{ juice-sat-cord-ms=t }
+----> { 'party snack foods'=t }
+, Rule#152: (Support=0.28, Confidence=0.81)
+{ 'frozen foods'=t 'party snack foods'=t }
+----> { 'bread and cake'=t }
+, Rule#153: (Support=0.33, Confidence=0.83)
+{ 'frozen foods'=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#154: (Support=0.5, Confidence=0.78)
+{ vegetables=t }
+----> { 'bread and cake'=t }
+, Rule#155: (Support=0.3, Confidence=0.61)
+{ 'party snack foods'=f }
+----> { vegetables=t }
+, Rule#156: (Support=0.28, Confidence=0.69)
+{ 'bread and cake'=t juice-sat-cord-ms=t }
+----> { 'baking needs'=t }
+, Rule#157: (Support=0.27, Confidence=0.57)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { 'party snack foods'=t }
+, Rule#158: (Support=0.41, Confidence=0.68)
+{ 'baking needs'=t }
+----> { milk-cream=t }
+, Rule#159: (Support=0.33, Confidence=0.66)
+{ 'party snack foods'=t }
+----> { 'baking needs'=t }
+, Rule#160: (Support=0.25, Confidence=0.6)
+{ 'baking needs'=t vegetables=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#161: (Support=0.27, Confidence=0.66)
+{ vegetables=t 'frozen foods'=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#162: (Support=0.35, Confidence=0.66)
+{ juice-sat-cord-ms=t }
+----> { 'frozen foods'=t }
+, Rule#163: (Support=0.34, Confidence=0.53)
+{ fruit=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#164: (Support=0.29, Confidence=0.72)
+{ 'baking needs'=t 'frozen foods'=t }
+----> { vegetables=t }
+, Rule#165: (Support=0.4, Confidence=0.56)
+{ 'bread and cake'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#166: (Support=0.4, Confidence=0.68)
+{ 'frozen foods'=t }
+----> { fruit=t }
+, Rule#167: (Support=0.26, Confidence=0.78)
+{ vegetables=t 'party snack foods'=t }
+----> { fruit=t }
+, Rule#168: (Support=0.27, Confidence=0.57)
+{ vegetables=t fruit=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#169: (Support=0.25, Confidence=0.51)
+{ 'party snack foods'=f }
+----> { 'frozen foods'=f }
+, Rule#170: (Support=0.39, Confidence=0.67)
+{ 'frozen foods'=t }
+----> { milk-cream=t }
+, Rule#171: (Support=0.27, Confidence=0.56)
+{ vegetables=t fruit=t }
+----> { 'bread and cake'=t 'frozen foods'=t }
+, Rule#172: (Support=0.29, Confidence=0.57)
+{ 'party snack foods'=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#173: (Support=0.28, Confidence=0.83)
+{ vegetables=t fruit=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#174: (Support=0.31, Confidence=0.66)
+{ vegetables=t fruit=t }
+----> { 'frozen foods'=t }
+, Rule#175: (Support=0.28, Confidence=0.59)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#176: (Support=0.36, Confidence=0.56)
+{ vegetables=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#177: (Support=0.25, Confidence=0.74)
+{ 'baking needs'=t 'bread and cake'=t fruit=t }
+----> { milk-cream=t }
+, Rule#178: (Support=0.29, Confidence=0.55)
+{ juice-sat-cord-ms=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#179: (Support=0.26, Confidence=0.65)
+{ 'bread and cake'=t 'party snack foods'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#180: (Support=0.36, Confidence=0.57)
+{ milk-cream=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#181: (Support=0.27, Confidence=0.86)
+{ vegetables=t 'frozen foods'=t fruit=t }
+----> { 'bread and cake'=t }
+, Rule#182: (Support=0.25, Confidence=0.51)
+{ vegetables=t 'bread and cake'=t }
+----> { 'baking needs'=t milk-cream=t }
+, Rule#183: (Support=0.25, Confidence=0.85)
+{ 'baking needs'=t fruit=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#184: (Support=0.48, Confidence=0.75)
+{ fruit=t }
+----> { vegetables=t }
+, Rule#185: (Support=0.39, Confidence=0.78)
+{ 'party snack foods'=t }
+----> { 'bread and cake'=t }
+, Rule#186: (Support=0.25, Confidence=0.69)
+{ 'bread and cake'=t fruit=t milk-cream=t }
+----> { 'baking needs'=t }
+, Rule#187: (Support=0.33, Confidence=0.73)
+{ 'bread and cake'=t 'frozen foods'=t }
+----> { fruit=t }
+, Rule#188: (Support=0.25, Confidence=0.5)
+{ 'bread and cake'=t fruit=t }
+----> { 'baking needs'=t milk-cream=t }
+, Rule#189: (Support=0.32, Confidence=0.67)
+{ vegetables=t fruit=t }
+----> { 'baking needs'=t }
+, Rule#190: (Support=0.29, Confidence=0.71)
+{ 'frozen foods'=t fruit=t }
+----> { milk-cream=t }
+, Rule#191: (Support=0.28, Confidence=0.77)
+{ juice-sat-cord-ms=t fruit=t }
+----> { vegetables=t }
+, Rule#192: (Support=0.4, Confidence=0.66)
+{ 'baking needs'=t }
+----> { 'frozen foods'=t }
+, Rule#193: (Support=0.28, Confidence=0.57)
+{ vegetables=t 'bread and cake'=t }
+----> { fruit=t milk-cream=t }
+, Rule#194: (Support=0.28, Confidence=0.6)
+{ juice-sat-cord-ms=f }
+----> { vegetables=t }
+, Rule#195: (Support=0.34, Confidence=0.53)
+{ vegetables=t }
+----> { 'party snack foods'=t }
+, Rule#196: (Support=0.34, Confidence=0.72)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { vegetables=t }
+, Rule#197: (Support=0.34, Confidence=0.71)
+{ vegetables=t fruit=t }
+----> { milk-cream=t }
+, Rule#198: (Support=0.35, Confidence=0.66)
+{ juice-sat-cord-ms=t }
+----> { 'baking needs'=t }
+, Rule#199: (Support=0.28, Confidence=0.55)
+{ vegetables=t 'bread and cake'=t }
+----> { 'party snack foods'=t }
+, Rule#200: (Support=0.34, Confidence=0.54)
+{ milk-cream=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#201: (Support=0.29, Confidence=0.72)
+{ 'frozen foods'=t milk-cream=t }
+----> { fruit=t }
+, Rule#202: (Support=0.34, Confidence=0.67)
+{ 'party snack foods'=t }
+----> { vegetables=t }
+, Rule#203: (Support=0.36, Confidence=0.57)
+{ fruit=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#204: (Support=0.33, Confidence=0.65)
+{ 'bread and cake'=t milk-cream=t }
+----> { 'frozen foods'=t }
+, Rule#205: (Support=0.28, Confidence=0.65)
+{ vegetables=t milk-cream=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#206: (Support=0.28, Confidence=0.61)
+{ juice-sat-cord-ms=f }
+----> { 'party snack foods'=f }
+, Rule#207: (Support=0.25, Confidence=0.72)
+{ juice-sat-cord-ms=t milk-cream=t }
+----> { fruit=t }
+, Rule#208: (Support=0.28, Confidence=0.67)
+{ 'baking needs'=t milk-cream=t }
+----> { 'frozen foods'=t }
+, Rule#209: (Support=0.27, Confidence=0.53)
+{ 'bread and cake'=t fruit=t }
+----> { vegetables=t 'frozen foods'=t }
+, Rule#210: (Support=0.29, Confidence=0.54)
+{ juice-sat-cord-ms=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#211: (Support=0.26, Confidence=0.51)
+{ 'party snack foods'=t }
+----> { 'bread and cake'=t juice-sat-cord-ms=t }
+, Rule#212: (Support=0.36, Confidence=0.83)
+{ fruit=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#213: (Support=0.39, Confidence=0.6)
+{ vegetables=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#214: (Support=0.28, Confidence=0.78)
+{ 'bread and cake'=t fruit=t milk-cream=t }
+----> { vegetables=t }
+, Rule#215: (Support=0.28, Confidence=0.69)
+{ 'frozen foods'=t fruit=t }
+----> { 'baking needs'=t }
+, Rule#216: (Support=0.36, Confidence=0.56)
+{ vegetables=t }
+----> { juice-sat-cord-ms=t }
+, Rule#217: (Support=0.27, Confidence=0.82)
+{ 'baking needs'=t 'party snack foods'=t }
+----> { 'bread and cake'=t }
+, Rule#218: (Support=0.27, Confidence=0.79)
+{ 'baking needs'=t vegetables=t 'bread and cake'=t }
+----> { fruit=t }
+, Rule#219: (Support=0.28, Confidence=0.7)
+{ 'frozen foods'=t milk-cream=t }
+----> { 'baking needs'=t }
+, Rule#220: (Support=0.28, Confidence=0.52)
+{ juice-sat-cord-ms=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#221: (Support=0.29, Confidence=0.73)
+{ 'bread and cake'=t juice-sat-cord-ms=t }
+----> { fruit=t }
+, Rule#222: (Support=0.34, Confidence=0.68)
+{ 'bread and cake'=t milk-cream=t }
+----> { 'baking needs'=t }
+, Rule#223: (Support=0.28, Confidence=0.83)
+{ milk-cream=t 'party snack foods'=t }
+----> { 'bread and cake'=t }
+, Rule#224: (Support=0.25, Confidence=0.58)
+{ vegetables=t milk-cream=t }
+----> { 'baking needs'=t 'bread and cake'=t }
+, Rule#225: (Support=0.29, Confidence=0.65)
+{ fruit=t milk-cream=t }
+----> { 'frozen foods'=t }
+, Rule#226: (Support=0.28, Confidence=0.6)
+{ juice-sat-cord-ms=f }
+----> { fruit=t }
+, Rule#227: (Support=0.3, Confidence=0.67)
+{ fruit=t milk-cream=t }
+----> { 'baking needs'=t }
+, Rule#228: (Support=0.25, Confidence=0.5)
+{ 'bread and cake'=t milk-cream=t }
+----> { 'baking needs'=t fruit=t }
+, Rule#229: (Support=0.42, Confidence=0.66)
+{ vegetables=t }
+----> { 'baking needs'=t }
+, Rule#230: (Support=0.28, Confidence=0.64)
+{ fruit=t milk-cream=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#231: (Support=0.28, Confidence=0.79)
+{ vegetables=t 'bread and cake'=t milk-cream=t }
+----> { fruit=t }
+, Rule#232: (Support=0.33, Confidence=0.55)
+{ 'baking needs'=t }
+----> { 'party snack foods'=t }
+, Rule#233: (Support=0.32, Confidence=0.68)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { 'frozen foods'=t }
+, Rule#234: (Support=0.29, Confidence=0.71)
+{ 'bread and cake'=t juice-sat-cord-ms=t }
+----> { vegetables=t }
+, Rule#235: (Support=0.39, Confidence=0.6)
+{ fruit=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#236: (Support=0.28, Confidence=0.82)
+{ vegetables=t 'party snack foods'=t }
+----> { 'bread and cake'=t }
+, Rule#237: (Support=0.25, Confidence=0.61)
+{ 'baking needs'=t milk-cream=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#238: (Support=0.47, Confidence=0.78)
+{ 'baking needs'=t }
+----> { 'bread and cake'=t }
+, Rule#239: (Support=0.5, Confidence=0.7)
+{ 'bread and cake'=t }
+----> { fruit=t }
+, Rule#240: (Support=0.29, Confidence=0.71)
+{ vegetables=t 'frozen foods'=t }
+----> { 'baking needs'=t }
+, Rule#241: (Support=0.28, Confidence=0.79)
+{ 'frozen foods'=t juice-sat-cord-ms=t }
+----> { 'bread and cake'=t }
+, Rule#242: (Support=0.25, Confidence=0.7)
+{ juice-sat-cord-ms=t fruit=t }
+----> { milk-cream=t }
+, Rule#243: (Support=0.25, Confidence=0.53)
+{ 'baking needs'=t 'bread and cake'=t }
+----> { fruit=t milk-cream=t }
+, Rule#244: (Support=0.33, Confidence=0.83)
+{ 'frozen foods'=t fruit=t }
+----> { 'bread and cake'=t }
+, Rule#245: (Support=0.39, Confidence=0.54)
+{ 'bread and cake'=t }
+----> { vegetables=t fruit=t }
+, Rule#246: (Support=0.33, Confidence=0.71)
+{ 'bread and cake'=t 'frozen foods'=t }
+----> { milk-cream=t }
+, Rule#247: (Support=0.34, Confidence=0.54)
+{ fruit=t }
+----> { 'party snack foods'=t }
+, Rule#248: (Support=0.31, Confidence=0.77)
+{ vegetables=t 'frozen foods'=t }
+----> { fruit=t }
+, Rule#249: (Support=0.28, Confidence=0.55)
+{ 'bread and cake'=t milk-cream=t }
+----> { 'party snack foods'=t }
+, Rule#250: (Support=0.28, Confidence=0.59)
+{ vegetables=t fruit=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#251: (Support=0.33, Confidence=0.67)
+{ 'bread and cake'=t fruit=t }
+----> { 'frozen foods'=t }
+, Rule#252: (Support=0.29, Confidence=0.58)
+{ vegetables=t 'bread and cake'=t }
+----> { juice-sat-cord-ms=t }
+, Rule#253: (Support=0.36, Confidence=0.82)
+{ vegetables=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#254: (Support=0.29, Confidence=0.65)
+{ vegetables=t milk-cream=t }
+----> { 'frozen foods'=t }
+, Rule#255: (Support=0.41, Confidence=0.64)
+{ fruit=t }
+----> { 'baking needs'=t }
+, Rule#256: (Support=0.25, Confidence=0.84)
+{ 'baking needs'=t vegetables=t milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#257: (Support=0.27, Confidence=0.69)
+{ vegetables=t 'bread and cake'=t fruit=t }
+----> { 'frozen foods'=t }
+, Rule#258: (Support=0.51, Confidence=0.8)
+{ milk-cream=t }
+----> { 'bread and cake'=t }
+, Rule#259: (Support=0.44, Confidence=0.69)
+{ fruit=t }
+----> { milk-cream=t }
+, Rule#260: (Support=0.29, Confidence=0.58)
+{ 'bread and cake'=t fruit=t }
+----> { juice-sat-cord-ms=t }
+, Rule#261: (Support=0.28, Confidence=0.52)
+{ juice-sat-cord-ms=t }
+----> { vegetables=t fruit=t }
+, Rule#262: (Support=0.34, Confidence=0.56)
+{ 'baking needs'=t }
+----> { 'bread and cake'=t fruit=t }
+, Rule#263: (Support=0.32, Confidence=0.68)
+{ juice-sat-cord-ms=f }
+----> { 'bread and cake'=t }
+, Rule#264: (Support=0.29, Confidence=0.8)
+{ vegetables=t juice-sat-cord-ms=t }
+----> { 'bread and cake'=t }
+, Rule#265: (Support=0.36, Confidence=0.5)
+{ 'bread and cake'=t }
+----> { vegetables=t milk-cream=t }
+, Rule#266: (Support=0.34, Confidence=0.57)
+{ 'baking needs'=t }
+----> { 'bread and cake'=t milk-cream=t }
+, Rule#267: (Support=0.34, Confidence=0.57)
+{ 'baking needs'=t }
+----> { vegetables=t 'bread and cake'=t }
+, Rule#268: (Support=0.25, Confidence=0.72)
+{ 'frozen foods'=t juice-sat-cord-ms=t }
+----> { vegetables=t }
+, Rule#269: (Support=0.28, Confidence=0.58)
+{ vegetables=t fruit=t }
+----> { juice-sat-cord-ms=t }
+, Rule#270: (Support=0.29, Confidence=0.57)
+{ 'bread and cake'=t milk-cream=t }
+----> { juice-sat-cord-ms=t }
 ]
