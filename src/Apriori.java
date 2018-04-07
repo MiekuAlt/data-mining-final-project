@@ -1,10 +1,14 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Set;
 
 public final class Apriori {
@@ -14,6 +18,9 @@ public final class Apriori {
 	
 	private static List<KeyValue> finalTable;
 	
+	private static double min_score;
+	private static List<List<String>> imp_chart;
+	
 	public static List<String> runApriori(List<List<String>> data, double supportInput, double confidenceInput) {
 		inputData = data;
 		minSupport = supportInput;
@@ -21,7 +28,14 @@ public final class Apriori {
 		finalTable = new ArrayList<KeyValue>();
  		genTables();
 		
+ 		// TODO: Remove this, for testing only!
  		printTable(finalTable, "FinalTable");
+ 		
+ 		// HWA(O) is implemented here
+ 		if(checkIfHWA()) {
+ 			getHWAInput();
+ 			finalTable = runHWAO(finalTable);
+ 		}
  		
 		// Association aspect of the algorithm to generate the rules
 		List<String> rules = runAssociation(finalTable);
@@ -34,6 +48,105 @@ public final class Apriori {
 		}
 		
 		return output;
+	}
+	
+	// Runs HWA(O), takes in the frequent itemset data, and trims it based on the hierarchical weighing
+	private static ArrayList<KeyValue> runHWAO(List<KeyValue> freqData) {
+		ArrayList<KeyValue> weightedTable = new ArrayList<KeyValue>();
+		
+		
+		
+		return weightedTable;
+	}
+	
+	// Getting the additional user inputs required for HWA(O)
+	private static void getHWAInput() {
+		
+		// Getting the minimum score
+		int reloop;
+		do {
+			reloop = 0;
+			System.out.print("Please enter the minimum score: ");
+			Scanner in = new Scanner(System.in);
+			try {
+				min_score = in.nextDouble();
+			} catch(Exception e) {
+				System.out.println("Incorrect format, please enter a number: ");
+				reloop++;
+			}
+		} while(reloop != 0);
+		
+		// Getting the importance chart
+		System.out.print("Please enter the importance chart's filename: ");
+		Scanner in = new Scanner(System.in);
+		String imp_name = in.nextLine();
+		
+		// Used to count the rows
+		int numRows = 0;
+		List<List<String>> imp_chart = new ArrayList<List<String>>();
+		BufferedReader br = null;
+		try {
+			br = new BufferedReader(new FileReader(imp_name));
+			// Separating the first line and setting up the tags to add to the data
+			String line = br.readLine();
+			String[] tags = line.split(",");
+
+			// Loops through the file, reading line by line
+			// Splits the line, then adds the tags to the corresponding value
+			// Adds the split line into the data array
+			line = br.readLine();
+			while (line != null) {
+				String[] split = line.split(",");
+				if(split.length == tags.length) {
+					numRows++;
+					for (int i = 0; i < split.length; i++) {
+						split[i] = tags[i] + "=" + split[i];
+					}
+				}
+
+				imp_chart.add(Arrays.asList(split));
+				line = br.readLine();
+			}
+		} catch(Exception e) {
+			System.out.println("No file found.");
+			return;
+		} finally {
+			try {
+				if (br != null) {
+					br.close();
+				}
+			}
+			catch (Exception e) {
+				System.out.println("Error closing the reader");
+			}
+		}
+	}
+	
+	// Checks if the user wants to use the HWA(O) algorithm
+	private static boolean checkIfHWA() {
+		boolean result = false;
+		
+		System.out.print("Do you want to use HWA(O)? (y/n): ");
+		
+		int reloop;
+		do {
+			reloop = 0;
+			Scanner in = new Scanner(System.in);
+			String reply;
+
+			reply = in.nextLine();
+			if (reply.equals("y") || reply.equals("Y")) {
+				result = true;
+			} else if (reply.equals("n") || reply.equals("N")) {
+				result = false;
+			} else {
+				System.out.print("Invalid Response - Do you want to use HWA(O)? (y/n): ");
+				reloop++;
+			}
+
+		} while(reloop != 0);
+		
+		return result;
 	}
 	
 	// Begins the Association aspect of the algorithm
