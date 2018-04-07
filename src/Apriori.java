@@ -18,7 +18,7 @@ public final class Apriori {
 	
 	private static List<KeyValue> finalTable;
 	
-	private static double min_score;
+	public static double min_score;
 	private static List<List<String>> imp_chart;
 	private static int maxLevel;
 	
@@ -32,6 +32,7 @@ public final class Apriori {
  		// HWA(O) is implemented here
  		if(checkIfHWA()) {
  			getHWAInput();
+ 			System.out.println("-------Processing-------");
  			finalTable = runHWAO(finalTable);
  		}
  		
@@ -160,7 +161,6 @@ public final class Apriori {
 		String imp_name = in.nextLine();
 		
 		// Used to count the rows
-		int numRows = 0;
 		imp_chart = new ArrayList<List<String>>();
 		BufferedReader br = null;
 		try {
@@ -176,7 +176,6 @@ public final class Apriori {
 			while (line != null) {
 				String[] split = line.split(",");
 				if(split.length == tags.length) {
-					numRows++;
 					for (int i = 0; i < split.length; i++) {
 						split[i] = tags[i] + "=" + split[i];
 					}
@@ -217,6 +216,7 @@ public final class Apriori {
 				result = true;
 			} else if (reply.equals("n") || reply.equals("N")) {
 				result = false;
+				System.out.println("-------Processing-------"); // Because the processing will continue for Association
 			} else {
 				System.out.print("Invalid Response - Do you want to use HWA(O)? (y/n): ");
 				reloop++;
@@ -473,20 +473,6 @@ public final class Apriori {
 		uniques.addAll(hs);
 		
 		return uniques;
-	}
-	
-	// TODO: Remove this, it is for testing only
-	public static void printTable(List<KeyValue> table, String tableName) {
-		System.out.println("+------ Table: " + tableName + "------+");
-		for(int i = 0; i < table.size(); i++) {
-			// Each itemset
-			for(int j = 0; j < table.get(i).itemSet.size(); j++) {
-				System.out.print(table.get(i).itemSet.get(j).value + " ");
-				System.out.print("(HWeight: " + table.get(i).itemSet.get(j).hWeight + ") ");
-			}
-			System.out.println("Support: " + table.get(i).support);
-		}
-		System.out.println("+---------------------------------+");
 	}
 	
 } // end of the Apriori class

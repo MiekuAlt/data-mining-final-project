@@ -16,9 +16,15 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		
+		System.out.print( "+---------------------------------------------+\n"
+				+ "+      Hierarchical Weight Algorithm (O)      +\n"
+				+ "+      By: Michael Altair       B00599791     +\n"
+				+ "+          Greg Mailman         B00695833     +\n"
+				+ "+          Samantha Williamson  B00690535     +\n"
+				+ "+---------------------------------------------+\n"
+				+ "\n");
 		// Initial User Input - filename
-		System.out.print("Welcome to Apriori Miner!\nPlease enter data file's name: ");
+		System.out.print("Please enter data file's name: ");
 		Scanner in = new Scanner(System.in);
 		filename = in.nextLine();
 		
@@ -112,6 +118,8 @@ public class Main {
 			}
 		}
 
+		System.out.println("-------Processing-------");
+		
 		long startTime = System.currentTimeMillis();
 		// Passes the input to the apriori algorithm. Gets a list of rules in return.
 		List<String> rules = Apriori.runApriori(Data, support, confidence);
@@ -133,7 +141,11 @@ public class Main {
 			bw.write("Summary: \n");
 			bw.write("Total rows in the original set: " + numRows + "\n");
 			bw.write("Total rules discovered: " + rules.size() + "\n");
-			bw.write("The selected measures: Support=" + support + ", Confidence=" + confidence + "\n");
+			if(Apriori.min_score > 0 ) {
+				bw.write("The selected measures: Support=" + support + ", Confidence=" + confidence + ", min_score=" + Apriori.min_score + "\n");
+			} else {
+				bw.write("The selected measures: Support=" + support + ", Confidence=" + confidence + "\n");
+			}
 			bw.write("\nTime to mine rules (ms): " + (endTime - startTime));
 			bw.write("----------------------------\n");
 			bw.write("Discovered rules:\n\n" + rules);
@@ -151,5 +163,6 @@ public class Main {
 		}
 		// Closing the reader
 		in.close();
+		System.out.println("Rules have been written in \"Rules.txt\"!");
 	}
 }
