@@ -34,6 +34,7 @@ public final class Apriori {
  		// HWA(O) is implemented here
  		if(checkIfHWA()) {
  			getHWAInput();
+ 			finalTable = runHWAO(finalTable);
  		}
  		
 		// Association aspect of the algorithm to generate the rules
@@ -47,6 +48,15 @@ public final class Apriori {
 		}
 		
 		return output;
+	}
+	
+	// Runs HWA(O), takes in the frequent itemset data, and trims it based on the hierarchical weighing
+	private static ArrayList<KeyValue> runHWAO(List<KeyValue> freqData) {
+		ArrayList<KeyValue> weightedTable = new ArrayList<KeyValue>();
+		
+		
+		
+		return weightedTable;
 	}
 	
 	// Getting the additional user inputs required for HWA(O)
