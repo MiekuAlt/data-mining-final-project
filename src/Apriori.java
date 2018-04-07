@@ -51,12 +51,45 @@ public final class Apriori {
 	}
 	
 	// Runs HWA(O), takes in the frequent itemset data, and trims it based on the hierarchical weighing
-	private static ArrayList<KeyValue> runHWAO(List<KeyValue> freqData) {
-		ArrayList<KeyValue> weightedTable = new ArrayList<KeyValue>();
+	private static List<KeyValue> runHWAO(List<KeyValue> freqData) {
+		List<KeyValue> weightedTable = setHWeights(freqData);
 		
 		
 		
 		return weightedTable;
+	}
+	
+	// Sets the HWeight for each of the items
+	private static List<KeyValue> setHWeights(List<KeyValue> tableToAddWeight) {
+		
+ 		for(int r = 0; r < tableToAddWeight.size(); r++) {
+ 			for(int c = 0; c < tableToAddWeight.get(r).itemSet.size(); c++) {
+ 				String[] split = tableToAddWeight.get(r).itemSet.get(c).value.split("=");
+ 				tableToAddWeight.get(r).itemSet.get(c).setHWeight(findWeight(split[0]));
+ 			}
+ 		}
+ 		
+		// TODO: Remove this, for testing only!
+ 		printTable(tableToAddWeight, "Weighted Table");
+		
+ 		return tableToAddWeight;
+	}
+	
+	// Finds the weight of a specific category
+	private static int findWeight(String cat) {
+		int weight = -1;
+		for(int i = 0; i < imp_chart.size(); i++) {
+			String[] catChunks = imp_chart.get(i).get(0).split("=");
+			String catFromTable = catChunks[1];
+			System.out.println(catFromTable + " - " + cat);
+			if(catFromTable.equals(cat)) {
+				String[] impChunks = imp_chart.get(i).get(1).split("=");
+				weight = Integer.parseInt(impChunks[1]);
+			}
+		}
+		
+		
+		return weight;
 	}
 	
 	// Getting the additional user inputs required for HWA(O)
@@ -83,7 +116,7 @@ public final class Apriori {
 		
 		// Used to count the rows
 		int numRows = 0;
-		List<List<String>> imp_chart = new ArrayList<List<String>>();
+		imp_chart = new ArrayList<List<String>>();
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(imp_name));
@@ -404,6 +437,7 @@ public final class Apriori {
 			// Each itemset
 			for(int j = 0; j < table.get(i).itemSet.size(); j++) {
 				System.out.print(table.get(i).itemSet.get(j).value + " ");
+				System.out.print("(HWeight: " + table.get(i).itemSet.get(j).hWeight + ") ");
 			}
 			System.out.println("Support: " + table.get(i).support);
 		}
@@ -425,8 +459,13 @@ class KeyValue {
 // The item and its value
 class Item {
 	String value;
+	int hWeight;
 	public Item(String value) {
 		this.value = value;
+	}
+	
+	public void setHWeight(int hWeight) {
+		this.hWeight = hWeight;
 	}
 }
 
