@@ -72,9 +72,6 @@ public class Main {
 			}
 		} while(reloop != 0);
 
-		// Just closing the scanner
-		in.close();
-
 		// Used to count the rows
 		int numRows = 0;
 		List<List<String>> Data = new ArrayList<List<String>>();
@@ -152,5 +149,7 @@ public class Main {
 				System.out.println("Error closing the writer.");
 			}
 		}
+		// Closing the reader
+		in.close();
 	}
 }
