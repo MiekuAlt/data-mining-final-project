@@ -20,6 +20,7 @@ public final class Apriori {
 	
 	private static double min_score;
 	private static List<List<String>> imp_chart;
+	private static int maxLevel;
 	
 	public static List<String> runApriori(List<List<String>> data, double supportInput, double confidenceInput) {
 		inputData = data;
@@ -27,9 +28,6 @@ public final class Apriori {
 		minConfidence = confidenceInput;
 		finalTable = new ArrayList<KeyValue>();
  		genTables();
-		
- 		// TODO: Remove this, for testing only!
- 		printTable(finalTable, "FinalTable");
  		
  		// HWA(O) is implemented here
  		if(checkIfHWA()) {
@@ -52,11 +50,59 @@ public final class Apriori {
 	
 	// Runs HWA(O), takes in the frequent itemset data, and trims it based on the hierarchical weighing
 	private static List<KeyValue> runHWAO(List<KeyValue> freqData) {
+		maxLevel = 0; // Initializing the maxLevel
 		List<KeyValue> weightedTable = setHWeights(freqData);
 		
-		
+		weightedTable = calcPruneTWeight(weightedTable);
 		
 		return weightedTable;
+	}
+	
+	// Calculates the total weight, finds the score, and prunes out the low scoring
+	private static List<KeyValue> calcPruneTWeight(List<KeyValue> weightedTable) {
+		
+		// Iterate through each itemset, going in reverse since some will be pruned
+		for(int i = weightedTable.size() - 1; i >= 0; i--) {
+			double score = calcTWeight(weightedTable.get(i)) * weightedTable.get(i).support;
+			// Pruning out failing itemsets
+			if(score < min_score) {
+				weightedTable.remove(i);
+			}
+		}
+		
+		return weightedTable;
+	}
+	
+	// Calculates the TWeight
+	private static double calcTWeight(KeyValue curRow) {
+		double result = 0;
+		double sumHWeight = 0;
+		int numItemset = 0;
+		
+		// Determining the number of items in this row
+		numItemset = curRow.itemSet.size();
+		
+		// Determining the sum of HWeight
+		for(int i = 0; i < numItemset; i++) {
+			sumHWeight += curRow.itemSet.get(i).hWeight;
+		}
+		result = sumHWeight / (binomialCoefficient(numItemset, 2) * maxLevel);
+		return result;
+	}
+	
+	// Calculates the binomial coefficient, n choose k
+	// Adapted from https://rosettacode.org/wiki/Evaluate_binomial_coefficients#Java
+	private static long binomialCoefficient(int n, int k) {
+		if (k>n-k) {
+            k=n-k;
+		}
+
+        long b=1;
+        for (int i=1, m=n; i<=k; i++, m--) {
+            b=b*m/i;
+        }
+
+        return b;
 	}
 	
 	// Sets the HWeight for each of the items
@@ -68,9 +114,6 @@ public final class Apriori {
  				tableToAddWeight.get(r).itemSet.get(c).setHWeight(findWeight(split[0]));
  			}
  		}
- 		
-		// TODO: Remove this, for testing only!
- 		printTable(tableToAddWeight, "Weighted Table");
 		
  		return tableToAddWeight;
 	}
@@ -81,13 +124,15 @@ public final class Apriori {
 		for(int i = 0; i < imp_chart.size(); i++) {
 			String[] catChunks = imp_chart.get(i).get(0).split("=");
 			String catFromTable = catChunks[1];
-			System.out.println(catFromTable + " - " + cat);
 			if(catFromTable.equals(cat)) {
 				String[] impChunks = imp_chart.get(i).get(1).split("=");
 				weight = Integer.parseInt(impChunks[1]);
+				// Finding the Max level with this importance chart for later use
+				if(weight > maxLevel) {
+					maxLevel = weight;
+				}
 			}
 		}
-		
 		
 		return weight;
 	}
