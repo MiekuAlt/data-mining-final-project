@@ -323,7 +323,7 @@ public final class Apriori {
 			curDataSets = expandItemSet(freqTable, iteration);
 			candTable = buildCand(curDataSets);
 
-			freqTable = buildFreq(candTable); // this was here previously
+			freqTable = buildFreq(candTable); 
 			iteration++;
 		}
 		
