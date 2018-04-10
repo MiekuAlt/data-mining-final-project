@@ -1,9 +1,24 @@
-﻿Category,Level
-'baking needs',0
-'bread and cake',0
-'frozen foods',1
-fruit,2
-juice-sat-cord-ms,1
-milk-cream,2
-'party snack foods',0
-vegetables,1
+Category	Level
+'baking needs'	0
+'bread and cake'	0
+'frozen foods'	1
+fruit	2
+juice-sat-cord-ms	1
+milk-cream	2
+'party snack foods'	0
+vegetables	1
+biscuits	2
+'breakfast food'	0
+juice-sat-cord-ms	2
+margarine	0
+'pet foods'	0
+sauces-gravy-pkle	1
+'tissues-paper prd'	2
+beef	0
+cleaners-polishers	0
+coffee	2
+jams-spreads	1
+'laundry needs'	1
+'small goods'	0
+stationary	0
+wrapping	1
